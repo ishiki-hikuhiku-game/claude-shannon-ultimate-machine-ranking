@@ -1,27 +1,5 @@
-import { NextRequest, NextResponse } from "next/server";
-import { EmptyTopThree, GetRanksResponse, PostRankRequest, insertTopThree } from "@/helpers/rank.helper";
-
-const loadRanks = async (): Promise<GetRanksResponse> => {
-    return {
-        desktop: EmptyTopThree,
-        mobile: EmptyTopThree,
-        browser: EmptyTopThree,
-    };
-}
-
-const saveRanks = async (ranks: GetRanksResponse) => 
-    {};
-
-
-
-/**
- * 現在のランキングを返す。
- */
-export const GET = async (req: NextRequest) => {
-    const ranks = await loadRanks();
-    return NextResponse.json<GetRanksResponse>(ranks, { status: 200 });
-};
-
+import { NextRequest } from "next/server";
+import { PostRankRequest, insertTopThree, loadRanks, saveRanks } from "@/helpers/rank.helper";
 
 /**
  * ランキングに新しい情報を入れる。

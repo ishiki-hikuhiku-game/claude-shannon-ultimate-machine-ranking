@@ -6,13 +6,16 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "vercel": "vercel",
+    "redis": "source .env.local && redis-cli --tls -u $KV_URL"
   },
   "dependencies": {
+    "@vercel/kv": "^1.0.1",
     "next": "14.1.0",
     "react": "^18",
     "react-dom": "^18",
-    "swr": "^2.2.5"
+    "vercel": "^33.5.2"
   },
   "devDependencies": {
     "@types/node": "^20",
