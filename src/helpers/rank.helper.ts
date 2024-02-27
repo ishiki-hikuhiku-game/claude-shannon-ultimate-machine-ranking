@@ -1,4 +1,5 @@
 import { kv } from "@vercel/kv";
+import { unstable_noStore as noStore } from 'next/cache';
 
 export type Rank = {
     time: string;
@@ -42,9 +43,11 @@ export const insertTopThree = (rank: Rank, topThree: TopThree): TopThree =>
 const RANKING_KEY = "ranking" as const;
 
 export const loadRanks = async () : Promise<GetRanksResponse> => {
-    return (await kv.get<GetRanksResponse>(RANKING_KEY)) ?? INITIAL_RANKS;
+    noStore();
+    const ranks = await kv.get<GetRanksResponse>(RANKING_KEY);
+    return ranks ?? INITIAL_RANKS;
 }
 
 export const saveRanks = async (ranks: GetRanksResponse) => {
-    kv.set(RANKING_KEY, ranks);
+    await kv.set(RANKING_KEY, ranks);
 };
