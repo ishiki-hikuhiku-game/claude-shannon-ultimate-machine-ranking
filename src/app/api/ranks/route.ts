@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { PostRankRequest, insertTopThree, loadRanks, saveRanks } from "@/helpers/rank.helper";
 import { CORS_HEADERS } from "@/helpers/api.helper";
 
@@ -14,4 +14,8 @@ export const POST = async (req: NextRequest) => {
         status: 204,
         headers: CORS_HEADERS,
       });
+}
+
+export const OPTIONS = async () => {
+    return NextResponse.json({}, { headers: CORS_HEADERS });
 }

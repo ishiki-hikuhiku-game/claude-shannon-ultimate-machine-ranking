@@ -4,6 +4,6 @@
  */
 export const CORS_HEADERS = {
     "Access-Control-Allow-Origin": "http://localhost:55555",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
   } as const;
