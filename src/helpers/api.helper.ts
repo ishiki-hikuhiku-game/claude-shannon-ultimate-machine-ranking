@@ -1,10 +1,11 @@
-const CORS_ARROW_ORIGINS = [
+import { NextRequest } from "next/server";
+
+const CORS_ALLOW_ORIGINS = [
   "http://localhost:55555",
   "https://claude-shannons-ultimate-machine.netlify.app"
 ] as const;
-
-const corsArrowOrigin = (url: string) => 
-  CORS_ARROW_ORIGINS.find((origin) => url.startsWith(origin));
+type CorsArrowOrigin = typeof CORS_ALLOW_ORIGINS[number];
+const isCorsArrowOrigin = (origin: string | null): origin is CorsArrowOrigin => CORS_ALLOW_ORIGINS.find((corsAllowOrigin) => corsAllowOrigin == origin) !== undefined;
 
 type Headers = {
   "Access-Control-Allow-Origin"?: string,
@@ -14,11 +15,10 @@ type Headers = {
 
 /**
  * ブラウザでアプリを動かすために必要な設定。
- * TODO 本番用のORIGINも設定する
  */
-export const corsHeaders = (url: string): Headers => {
-  const origin = corsArrowOrigin(url);
-  if (origin === undefined) {
+export const corsHeaders = (req: NextRequest): Headers => {
+  const origin = req.headers.get("Origin");
+  if (!isCorsArrowOrigin(origin)) {
     return {};
   }
   return {

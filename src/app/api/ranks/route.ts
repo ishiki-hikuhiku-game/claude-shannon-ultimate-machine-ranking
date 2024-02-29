@@ -12,10 +12,10 @@ export const POST = async (req: NextRequest) => {
     await saveRanks(ranks);
     return new Response(null, {
         status: 204,
-        headers: corsHeaders(req.url),
+        headers: corsHeaders(req),
       });
 }
 
 export const OPTIONS = async (req: NextRequest) => {
-    return NextResponse.json({}, { headers: corsHeaders(req.url) });
+    return NextResponse.json({}, { headers: corsHeaders(req) });
 }
