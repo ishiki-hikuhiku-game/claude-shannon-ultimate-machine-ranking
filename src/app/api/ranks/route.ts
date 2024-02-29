@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { PostRankRequest, insertTopThree, loadRanks, saveRanks } from "@/helpers/rank.helper";
-import { CORS_HEADERS } from "@/helpers/api.helper";
+import { corsHeaders } from "@/helpers/api.helper";
 
 /**
  * ランキングに新しい情報を入れる。
@@ -12,10 +12,11 @@ export const POST = async (req: NextRequest) => {
     await saveRanks(ranks);
     return new Response(null, {
         status: 204,
-        headers: CORS_HEADERS,
+        headers: corsHeaders(req.url),
       });
 }
 
-export const OPTIONS = async () => {
-    return NextResponse.json({}, { headers: CORS_HEADERS });
+export const OPTIONS = async (req: NextRequest) => {
+    req.url;
+    return NextResponse.json({}, { headers: corsHeaders(req.url) });
 }
