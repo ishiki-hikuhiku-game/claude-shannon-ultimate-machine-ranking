@@ -8,6 +8,11 @@ export type Rank = {
 
 export const APP_TYPES = ["desktop", "mobile", "browser"] as const;
 export type AppType = typeof APP_TYPES[number];
+export const TRANSLATE_MAP: {[appType in AppType]: string} = {
+    desktop: "デスクトップ",
+    mobile: "スマートフォン",
+    browser: "ブラウザ",
+} as const;
 export const EmptyRank = {
     time: "00:00:00"
 } as const satisfies Rank;
