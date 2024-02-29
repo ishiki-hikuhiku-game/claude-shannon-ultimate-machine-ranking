@@ -46,7 +46,10 @@ export default async function Home() {
           <p>彼はそれが宇宙の模型であることには気が付かなかったようだ。</p>
         </div>
       </main>
-      <footer id="credit" className="bg-black w-screen">
+      <footer
+        id="credit"
+        className="bg-black w-screen flex flex-col items-center justify-between"
+      >
         <p className="text-white">
           制作：
           <a href="https://github.com/ishiki-hikuhiku-game">
