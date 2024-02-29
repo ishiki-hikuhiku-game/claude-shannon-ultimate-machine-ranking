@@ -17,6 +17,5 @@ export const POST = async (req: NextRequest) => {
 }
 
 export const OPTIONS = async (req: NextRequest) => {
-    req.url;
     return NextResponse.json({}, { headers: corsHeaders(req.url) });
 }
