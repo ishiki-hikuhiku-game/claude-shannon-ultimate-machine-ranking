@@ -31,3 +31,12 @@ body {
     text-wrap: balance;
   }
 }
+
+.link {
+  color: #0000ee;
+}
+
+.link:hover {
+  color: #5555ee;
+  text-decoration: underline;
+}

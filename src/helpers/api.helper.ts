@@ -14,15 +14,16 @@ type Headers = {
 }
 
 /**
- * ブラウザでアプリを動かすために必要な設定。
+ * ブラウザでアプリを動かすためにCORSの設定が必要。
  */
 export const corsHeaders = (req: NextRequest): Headers => {
+  // req.urlは「このサーバーが配置されているURL」であることに注意
   const origin = req.headers.get("Origin");
   if (!isCorsArrowOrigin(origin)) {
     return {};
   }
   return {
-    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Origin": origin, // 複数設定できないことに注意
     "Access-Control-Allow-Methods": "POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type",
   }

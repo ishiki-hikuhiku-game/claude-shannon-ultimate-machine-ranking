@@ -8,15 +8,17 @@ export default async function Home() {
       <h1 className="p-2 w-screen bg-slate-100">
         シャノンの究極のマシン生存期間ランキング
       </h1>
-      <main className="flex flex-col items-center justify-between p-24">
+      <main className="flex flex-col items-center justify-between p-24 pt-5">
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
           {data !== undefined &&
             APP_TYPES.map((appType) => (
               <div key={`list-${appType}`} className="mb-5">
-                <h2>{TRANSLATE_MAP[appType]}</h2>
+                <h2 className="text-lg">{TRANSLATE_MAP[appType]}</h2>
                 <ol>
                   {data[appType].map((rank, i) => (
-                    <li key={`browser-${i}`}>{rank.time}</li>
+                    <li className="pl-1" key={`browser-${i}`}>
+                      {rank.time}
+                    </li>
                   ))}
                 </ol>
               </div>
@@ -44,6 +46,38 @@ export default async function Home() {
             情報学者のクロード・シャノンとマーヴィン・ミンスキーが作った、「ONにすると自分をOFFにする機械」をアーサー・C・クラークが目に留めて文章に残している。
           </p>
           <p>彼はそれが宇宙の模型であることには気が付かなかったようだ。</p>
+          <p>
+            （シャノンの究極のマシンについては「
+            <a
+              className="link"
+              href="https://www.google.com/search?q=shannon%27s+ultimate+machine"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              shannon&apos;s ultimate machine
+            </a>
+            」で検索すればその実物の動画が見られるはずである）
+          </p>
+        </div>
+        <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
+          <div>
+            <a
+              className="link"
+              href="https://claude-shannons-ultimate-machine.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              web版
+            </a>
+          </div>
+          <div>
+            <a
+              className="link"
+              href="/claude_shannons_ultimate_machine-1.0.0.zip"
+            >
+              windows(x64)版
+            </a>
+          </div>
         </div>
       </main>
       <footer

@@ -1,3 +1,9 @@
+/*
+ * kvはvercelのキーバリューデータベースで
+ * 招待はredis。
+ * 
+ * なので、kvを使わなくなった場合は、他のredisに接続しなおせば良い。
+ */
 import { kv } from "@vercel/kv";
 import { unstable_noStore as noStore } from 'next/cache';
 
@@ -48,7 +54,7 @@ export const insertTopThree = (rank: Rank, topThree: TopThree): TopThree =>
 const RANKING_KEY = "ranking" as const;
 
 export const loadRanks = async () : Promise<GetRanksResponse> => {
-    noStore();
+    noStore(); // これをしないとキャッシュされて最新の結果が取れない。
     const ranks = await kv.get<GetRanksResponse>(RANKING_KEY);
     return ranks ?? INITIAL_RANKS;
 }
