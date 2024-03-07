@@ -8,7 +8,9 @@ import { corsHeaders } from "@/helpers/api.helper";
 export const POST = async (req: NextRequest) => {
     const rank = await req.json() as PostRankRequest;
     const ranks = await loadRanks();
-    ranks[rank.type] = insertTopThree(rank, ranks[rank.type]);
+    const now = new Date();
+    const nowString = now.toLocaleString("ja-JP")
+    ranks[rank.type] = insertTopThree({...rank, datetime: nowString}, ranks[rank.type]);
     await saveRanks(ranks);
     return new Response(null, {
         status: 204,

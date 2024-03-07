@@ -9,20 +9,20 @@ export default async function Home() {
         シャノンの究極のマシン生存期間ランキング
       </h1>
       <main className="flex flex-col items-center justify-between p-24 pt-5">
+        <h2>{data.month}のランキング</h2>
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-          {data !== undefined &&
-            APP_TYPES.map((appType) => (
-              <div key={`list-${appType}`} className="mb-5">
-                <h2 className="text-lg">{TRANSLATE_MAP[appType]}</h2>
-                <ol>
-                  {data[appType].map((rank, i) => (
-                    <li className="pl-1" key={`browser-${i}`}>
-                      {rank.time}
-                    </li>
-                  ))}
-                </ol>
-              </div>
-            ))}
+          {APP_TYPES.map((appType) => (
+            <div key={`list-${appType}`} className="mb-5">
+              <h2 className="text-lg">{TRANSLATE_MAP[appType]}</h2>
+              <ol>
+                {data[appType].map((rank, i) => (
+                  <li className="pl-1" key={`browser-${i}`}>
+                    {rank.time}（{rank.datetime}）
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
         </div>
         <div className="w-screen p-5">
           <p>全ての始まり、何も無かった。</p>
@@ -40,12 +40,12 @@ export default async function Home() {
           </p>
           <p>様々な工夫により、有が無となるまでの期間は長くなっていった。</p>
           <p>
-            今回、無が有になってから、地球人類の時間で138億年経ってもまだ無にはなっていない。
+            今回、無が有になってから、地球人類の時間で約138億年経ったが、まだ無にはなっていない。
           </p>
           <p>
-            情報学者のクロード・シャノンとマーヴィン・ミンスキーが作った、「ONにすると自分をOFFにする機械」をアーサー・C・クラークが目に留めて文章に残している。
+            情報学者のクロード・シャノンとマーヴィン・ミンスキーが作った「ONにすると自分をOFFにする機械」を、アーサー・C・クラークが目に留めて文章に残している。
           </p>
-          <p>彼はそれが宇宙の模型であることには気が付かなかったようだ。</p>
+          <p>彼はそれがこの宇宙の模型であることには気が付かなかったようだ。</p>
           <p>
             （シャノンの究極のマシンについては「
             <a
@@ -56,7 +56,7 @@ export default async function Home() {
             >
               shannon&apos;s ultimate machine
             </a>
-            」で検索すればその実物の動画が見られるはずである）
+            」で検索すればその実物の説明や動画が見られるはずである）
           </p>
         </div>
         <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
@@ -74,6 +74,7 @@ export default async function Home() {
             <a
               className="link"
               href="/claude_shannons_ultimate_machine-1.0.0.zip"
+              download="claude_shannons_ultimate_machine-1.0.0.zip"
             >
               windows(x64)版
             </a>

@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://shannons-ultimate-machine-ranking.vercel.app/",
   },
+  metadataBase: new URL(process.env.URL ?? "http://localhost:3000"),
 };
 
 export default function RootLayout({
