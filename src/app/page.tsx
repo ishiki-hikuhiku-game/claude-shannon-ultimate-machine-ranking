@@ -5,7 +5,7 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col min-h-screen justify-between">
-      <h1 className="p-2 w-screen bg-slate-100">
+      <h1 className="p-2 w-screen bg-slate-100 text-black">
         シャノンの究極のマシン生存期間ランキング
       </h1>
       <main className="flex flex-col items-center justify-between p-24 pt-5">
