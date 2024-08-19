@@ -63,6 +63,16 @@ export default async function Home() {
           <div>
             <a
               className="link"
+              href="https://play.google.com/store/apps/details?id=xyz.tannakaken.shannos_ultimate_machine"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Android版
+            </a>
+          </div>
+          <div>
+            <a
+              className="link"
               href="https://claude-shannons-ultimate-machine.netlify.app/"
               target="_blank"
               rel="noopener noreferrer"
