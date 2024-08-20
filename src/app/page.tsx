@@ -83,11 +83,30 @@ export default async function Home() {
           <div>
             <a
               className="link"
-              href="/claude_shannons_ultimate_machine-1.0.0.zip"
-              download="claude_shannons_ultimate_machine-1.0.0.zip"
+              href="/claude_shannons_ultimate_machine-1.1.0.zip"
+              download="claude_shannons_ultimate_machine-1.1.0.zip"
             >
               windows(x64)版
             </a>
+          </div>
+        </div>
+        <div>
+          <h2>クレジット</h2>
+          <div>
+            プログラマ・文章：<a href="https://tannakaken.xyz">淡中 圏</a>
+          </div>
+          <div>
+            音楽：<a href="https://tloe.bandcamp.com/">倉永崇</a>
+            <br />
+            <div>
+              <h3>曲リスト</h3>
+              <div>
+                Epia: <audio src="/musics/Epia.mp3" controls />
+              </div>
+              <div>
+                Herence: <audio src="/musics/Herence.mp3" controls />
+              </div>
+            </div>
           </div>
         </div>
       </main>
