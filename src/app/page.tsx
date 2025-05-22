@@ -93,27 +93,29 @@ export default async function Home() {
         <div className="flex flex-col">
           <h2 className="m-8 text-center text-xl">クレジット</h2>
           <table>
-            <tr>
-              <th className="align-top text-right">プログラマ・文章：</th>
-              <td>
-                <a href="https://tannakaken.xyz">淡中 圏</a>
-              </td>
-            </tr>
-            <tr>
-              <th className="align-top text-right">音楽：</th>
-              <td>
-                <a href="https://tloe.bandcamp.com/">倉永崇</a>
-                <div>
-                  <h3 className="p-4">曲リスト</h3>
+            <tbody>
+              <tr>
+                <th className="align-top text-right">プログラマ・文章：</th>
+                <td>
+                  <a href="https://tannakaken.xyz">淡中 圏</a>
+                </td>
+              </tr>
+              <tr>
+                <th className="align-top text-right">音楽：</th>
+                <td>
+                  <a href="https://tloe.bandcamp.com/">倉永崇</a>
                   <div>
-                    Epia: <audio src="/musics/Epia.mp3" controls />
+                    <h3 className="p-4">曲リスト</h3>
+                    <div>
+                      Epia: <audio src="/musics/Epia.mp3" controls />
+                    </div>
+                    <div>
+                      Herence: <audio src="/musics/Herence.mp3" controls />
+                    </div>
                   </div>
-                  <div>
-                    Herence: <audio src="/musics/Herence.mp3" controls />
-                  </div>
-                </div>
-              </td>
-            </tr>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </main>
